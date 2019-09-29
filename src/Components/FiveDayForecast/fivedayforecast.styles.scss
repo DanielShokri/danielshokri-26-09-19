@@ -1,0 +1,95 @@
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.box {
+  width: 14vw;
+  display: inline-block;
+  height: 30vh;
+  margin: 16px;
+  border-radius: 5px;
+  box-shadow: 0px 9px 15px -12px #000000, 3px 9px 0px -14px rgba(0.1, 0.3, 0.2, 0.1);
+  position: relative;
+  background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(239,246,249,1) 0%, rgba(206,239,253,1) 90% );
+  overflow: hidden;
+}
+
+.box:after {
+  content: "";
+  display: block;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 11;
+  transform: translate3d(0, 0, 0);
+}
+
+.info {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 56%;
+  z-index: 4;
+  color: #111;
+}
+
+.location {
+  text-align: center;
+  font-weight: 800;
+}
+
+.date {
+  text-align: center;
+  margin-top: 5%;
+  color: #3d3b3b;
+  font-size: 70%;
+}
+
+.temp {
+  margin: 10px auto;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+}
+
+.weathercon {
+  height: 55%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3em;
+}
+
+@media (max-width: 600px) {
+  .box {
+    width: 55vw;
+    height: 27vh;
+  }
+
+  .weathercon {
+    font-size: 5em;
+  }
+
+  .info {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-height: 500px) {
+  .box {
+    height: 80vh;
+  }
+
+  .wave {
+    top: 115%;
+  }
+}
+
+body > span {
+  width: 100vw;
+  text-align: center;
+  color: grey;
+}

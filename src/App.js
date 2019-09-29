@@ -1,26 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
+import AppHeader from './Components/AppHeader/AppHeader.cmp';
+import HomePage from './Pages/HomePage/HomePage.cmp';
+import FavoritePage from './Pages/FavoritePage/FavoritePage.cmp';
+import './App.scss';
 
-function App() {
+
+const App = ({darkMode}) => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={`${darkMode ? 'is-dark-mode' : ''} App`}>
+      <AppHeader />
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route path="/favorite" component={FavoritePage} />
+      </Switch>
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  const { darkMode } = state.favoriteReducer
+  return {
+    darkMode
+  }
+}
+
+export default connect(mapStateToProps)(App);

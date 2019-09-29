@@ -1,0 +1,16 @@
+.favorite-preview {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  .remove {
+    cursor: pointer;
+    span {
+      font-size: 0.7rem;
+    }
+  }
+
+  .loaction {
+    margin-bottom: 12px;
+  }
+}
