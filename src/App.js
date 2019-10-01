@@ -13,7 +13,7 @@ const App = ({darkMode}) => {
       <AppHeader />
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route path="/favorites" component={FavoritesPage} />
+        <Route exact path="/favorites" component={FavoritesPage} />
       </Switch>
     </div>
   );
