@@ -2,7 +2,7 @@
   "name": "weather-herolo",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://danielshokri.github.io/danielshokri-26-09-19",
+  "homepage": "http://danielshokri.github.io/",
   "dependencies": {
     "axios": "^0.19.0",
     "bulma": "^0.7.5",

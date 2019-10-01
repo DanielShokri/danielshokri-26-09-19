@@ -74,7 +74,6 @@ const MainForecast = ({ cityCode, cityWeather, fiveDayForecast, favorites, isFah
 
     const FavoriteIcon = () => {
         const existingFav = favorites.findIndex(favorite => favorite.cityName === cityCode.LocalizedName);
-        console.log(existingFav)
         if (existingFav !== -1) {
             return (
                 <div className="fav-icon" onClick={handleDeleteFromFavorites}>
