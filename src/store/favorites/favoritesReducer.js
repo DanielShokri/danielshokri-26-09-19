@@ -1,5 +1,5 @@
 import types from '../types';
-import favoriteService from '../../services/favoriteService/favoriteService';
+import FavoriteService from '../../services/FavoriteService/FavoriteService';
 
 const INITIAL_STATE = {
     favorites: [],
@@ -12,12 +12,12 @@ export const favoriteReducer = (state = INITIAL_STATE, action) => {
         case types.ADD_FAVORITE_CITY:
             return {
                 ...state,
-                favorites: favoriteService.addCityToFavorites(state.favorites, action.payload)
+                favorites: FavoriteService.addCityToFavorites(state.favorites, action.payload)
             }
         case types.DELETE_FAVORITE_CITY:
             return {
                 ...state,
-                favorites: favoriteService.deleteFavorite(state.favorites, action.payload)
+                favorites: FavoriteService.deleteFavorite(state.favorites, action.payload)
             }
         case types.SET_DARK_MODE:
             return {
