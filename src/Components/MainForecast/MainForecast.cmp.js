@@ -5,7 +5,6 @@ import { addFavorite } from '../../store/favorites/favoritesActions';
 import { deleteFavorite } from '../../store/favorites/favoritesActions';
 import FiveDayForecast from '../FiveDayForecast/FiveDayForecat.cmp';
 import cogoToast from 'cogo-toast';
-import Zoom from 'react-reveal/Zoom';
 
 import './mainforecast.styles.scss';
 
@@ -74,7 +73,8 @@ const MainForecast = ({ cityCode, cityWeather, fiveDayForecast, favorites, isFah
     }
 
     const FavoriteIcon = () => {
-        const existingFav = favorites.findIndex(favorite => favorite.id === cityCode.AdministrativeArea.ID);
+        const existingFav = favorites.findIndex(favorite => favorite.cityName === cityCode.LocalizedName);
+        console.log(existingFav)
         if (existingFav !== -1) {
             return (
                 <div className="fav-icon" onClick={handleDeleteFromFavorites}>
@@ -117,24 +117,21 @@ const MainForecast = ({ cityCode, cityWeather, fiveDayForecast, favorites, isFah
                                 <FavoriteIcon />
                                 <div className="center">
                                     <img src={`https://apidev.accuweather.com/developers/Media/Default/WeatherIcons/${cityWeather.WeatherIcon}-s.png`} alt="" />
-                                    <h1 className="value">{isFahrenheit ? cityWeather.Temperature.Imperial.Value : cityWeather.Temperature.Metric.Value  } {isFahrenheit ? <span>&deg;F</span> : <span>&#176;C</span>}</h1>
-                                    {/* &#176;C */}
-                                    {/* cityWeather.Temperature.Imperial.Value */}
+                                    <h1 className="value">{isFahrenheit ? cityWeather.Temperature.Imperial.Value : cityWeather.Temperature.Metric.Value} {isFahrenheit ? <span>&deg;F</span> : <span>&#176;C</span>}</h1>
                                     <h3>{cityWeather.WeatherText}</h3>
                                 </div>
                             </div>
                             <div className={`${darkMode ? 'dark-mode' : ''} details`}>
                                 <h1 className="title">{cityCode.LocalizedName}, {cityCode.Country.LocalizedName} </h1>
-                                
-                                    <div className="cards-container">
-                                        {fiveDayForecast.DailyForecasts && (
-                                            fiveDayForecast.DailyForecasts.map((dayWeather, idx) => (
-                                                <FiveDayForecast key={idx} weather={dayWeather} />
-                                            ))
-                                        )
-                                        }
-                                    </div>
-                                
+
+                                <div className="cards-container">
+                                    {fiveDayForecast.DailyForecasts && (
+                                        fiveDayForecast.DailyForecasts.map((dayWeather, idx) => (
+                                            <FiveDayForecast key={idx} weather={dayWeather} />
+                                        ))
+                                    )
+                                    }
+                                </div>
                             </div>
                         </div>
                     </div >

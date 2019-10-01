@@ -21,28 +21,26 @@ export const fetchCityWeatherCode = weatherInput => {
 };
 
 export const fetchCityWeatherData = cityKey => {
-    return dispatch => {
-        return weatherService.getWeather(cityKey)
-            .then(response => {
-                dispatch(fetchData(response, types.FETCH_CITY_WEATHER))
-                return response;
-            })
-            .catch(error => {
-                throw (error);
-            });
+    return async (dispatch) => {
+        try {
+            const fetchCityWeather = await weatherService.getWeather(cityKey)
+            dispatch(fetchData(fetchCityWeather, types.FETCH_CITY_WEATHER))
+            return fetchCityWeather;
+        } catch (error) {
+            throw (error)
+        }
     };
 };
 
 export const fetchFiveDayForecast = cityKey => {
-    return dispatch => {
-        return weatherService.getFiveDayForecast(cityKey)
-            .then(response => {
-                dispatch(fetchData(response, types.FETCH_FIVE_DAY_FORECAST))
-                return response;
-            })
-            .catch(error => {
-                throw (error);
-            });
+    return async (dispatch) => {
+        try {
+            const fetchFiveDayWeather = await weatherService.getFiveDayForecast(cityKey)
+            dispatch(fetchData(fetchFiveDayWeather, types.FETCH_FIVE_DAY_FORECAST))
+            return fetchFiveDayWeather;
+        } catch (error) {
+            throw (error);
+        }
     };
 };
 

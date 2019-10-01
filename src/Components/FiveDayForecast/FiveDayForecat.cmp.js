@@ -6,9 +6,6 @@ import Zoom from 'react-reveal/Zoom';
 import './fivedayforecast.styles.scss';
 
 const FiveDayForecast = ({ weather, isFahrenheit }) => {
-
-
-    console.log(weather)
     return (
         <Zoom>
             <div className="cards-container">
@@ -22,9 +19,7 @@ const FiveDayForecast = ({ weather, isFahrenheit }) => {
                                 :
                                 <h1 className="temp">{((weather.Temperature.Minimum.Value - 32) / 1.8).toFixed()} &deg;C | {((weather.Temperature.Maximum.Value - 32) / 1.8).toFixed()} &deg;C</h1>
                         }
-                        {/* {weather.Temperature.Maximum.Value} &deg;F */}
                     </div>
-
                 </div>
             </div>
         </Zoom>

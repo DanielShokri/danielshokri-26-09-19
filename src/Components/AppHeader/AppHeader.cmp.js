@@ -59,7 +59,7 @@ const AppHeader = ({ setDarkMode, setFahrenheitToggle }) => {
                                 <div className="button is-light" style={{ cursor: 'pointer' }} href="#" onClick={handleDarkMode}>{isDarkMode ? 'Light Mode' : 'Dark Mode'}</div>
                                 <div className="button is-light" style={{ cursor: 'pointer' }} href="#" onClick={handleFahrenheitToggle}>{isFahre ? 'Celsius' : 'Fahrenheit'}</div>
                                 <Link className="button is-light" to="/">HOME</Link>
-                                <Link className="button is-light" to="/favorite">FAVORITES</Link>
+                                <Link className="button is-light" to="/favorites">FAVORITES</Link>
                             </div>
                         </div>
                     </div>

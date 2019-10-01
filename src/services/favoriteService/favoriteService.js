@@ -20,6 +20,6 @@ function addCityToFavorites(favorites, favoriteToAdd) {
 }
 
 function deleteFavorite(favorites, favoriteToDelete) {
-    const filteredFavorites = favorites.filter(item => item.id !== favoriteToDelete.id);
+    const filteredFavorites = favorites.filter(favorite => favorite.id !== favoriteToDelete.id);
     return filteredFavorites
 }

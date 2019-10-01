@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import AppHeader from './Components/AppHeader/AppHeader.cmp';
 import HomePage from './Pages/HomePage/HomePage.cmp';
-import FavoritePage from './Pages/FavoritePage/FavoritePage.cmp';
+import FavoritesPage from './Pages/FavoritesPage/FavoritesPage.cmp';
 import './App.scss';
 
 
@@ -13,7 +13,7 @@ const App = ({darkMode}) => {
       <AppHeader />
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route path="/favorite" component={FavoritePage} />
+        <Route path="/favorites" component={FavoritesPage} />
       </Switch>
     </div>
   );

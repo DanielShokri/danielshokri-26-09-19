@@ -3,7 +3,6 @@ import axios from 'axios';
 
 
 const weatherApi = 'GEodkJ6YjTCvyszsHyu2ACeDeTBvqjac';
-// const weatherApi = 'knnG3d5le7I9GPG1UGpGIpqtXXVXht5D';
 
 
 async function getCountryCode(userCity = 'tel aviv') {
@@ -30,8 +29,8 @@ async function getFiveDayForecast(cityCode = '215845') {
     try {
         const res = await axios.get(`https://dataservice.accuweather.com/forecasts/v1/daily/5day/${cityCode}?apikey=${weatherApi}`)
         return res.data
-    } catch (error) {
-        throw error
+    } catch (err) {
+        throw err;
     }
 }
 
